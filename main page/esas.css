@@ -1,0 +1,253 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+}
+.img{
+    height: 150px;
+    width: 200px;
+}
+.btn {
+    background: linear-gradient(45deg, #007bff, #00c3ff,#2c3e50);
+    background-size: 200% 200%;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    animation: colorShift 3s infinite alternate;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+@keyframes colorShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+input {
+    width: 220px;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    outline: none;
+    position: relative;
+    transition: 0.3s ease-in-out;
+}
+
+/* Glowing border animation */
+input:focus {
+    border-color: transparent;
+    animation: glowing-border 1.5s infinite linear;
+}
+
+/* Keyframes for stronger glowing effect */
+@keyframes glowing-border {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 0, 255, 0.8), inset 0 0 5px rgba(0, 0, 255, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 0, 255, 1), inset 0 0 10px rgba(0, 0, 255, 1);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 0, 255, 0.8), inset 0 0 5px rgba(0, 0, 255, 0.8);
+    }
+}
+
+input::placeholder {
+    color: rgb(14, 0, 0);
+    opacity: 0.7;
+}
+
+/* Sidebar styling */
+#sidebar {
+    background-color: #2c3e50;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Sidebar başlangıçta gizli olur */
+    height: 100%;
+    width: 250px;
+    padding: 20px;
+    transition: left 0.3s ease-in-out; /* Sidebar animasiya */
+}
+
+#sidebar h2 {
+    margin-top: 0;
+}
+
+/* Sidebar açıldığında */
+#sidebar.open {
+    left: 0; /* Sidebar tam açıldığında */
+}
+
+/* Sidebar toggle button */
+#sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+}
+
+/* Toggle button click effect */
+#sidebar-toggle.open {
+    left: 250px; /* Sidebar açıldığında toggle butonu sağa kayar */
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+#auth-container input,
+#auth-container button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#content {
+    display: none;
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1, h4 {
+    margin: 10px;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px; /* Theme toggle sağda */
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    #sidebar {
+        width: 220px;
+        left: -220px;
+    }
+
+    #sidebar-toggle {
+        top: 10px;
+        left: 10px;
+    }
+
+    #theme-toggle {
+        top: 10px;
+        right: 20px; /* Küçük ekranlar için pozisyonu düzelttik */
+    }
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        width: 200px;
+        left: -200px;
+    }
+
+    #auth-container input,
+    #auth-container button {
+        font-size: 14px;
+    }
+
+    #sidebar h2, #sidebar p {
+        font-size: 14px;
+    }
+
+    #sidebar-toggle {
+        top: 10px;
+        left: 10px;
+    }
+
+    #theme-toggle {
+        top: 10px;
+        right: 10px; /* Küçük ekranlar için düzenleme */
+    }
+}
+/* Responsiv input dizaynı */
+input {
+    width: 100%; /* Genişliyi %100 edirik ki, hər ekran ölçüsündə uyğunlaşsın */
+    max-width: 220px; /* Maksimum genişlik təyin edirik */
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    outline: none;
+    position: relative;
+    transition: 0.3s ease-in-out;
+}
+
+/* Input hissəsini daha rahat görmək üçün uyğun ölçü */
+@media (max-width: 1024px) {
+    input {
+        width: 90%; /* Ekran ölçüsünə görə input daha kiçik ola bilər */
+    }
+}
+
+@media (max-width: 768px) {
+    input {
+        width: 85%; /* Daha kiçik ekranlarda 85% genişlik təyin edirik */
+    }
+}
+
+@media (max-width: 480px) {
+    input {
+        width: 80%; /* Çox kiçik ekranlarda 80% genişlik */
+    }
+}
+
+@media (max-width: 480px) {
+    #sidebar {
+        width: 180px;
+        left: -180px;
+    }
+
+    #auth-container input,
+    #auth-container button {
+        font-size: 12px;
+    }
+
+    #sidebar h2, #sidebar p {
+        font-size: 12px;
+    }
+
+    #theme-toggle {
+        top: 10px;
+        right: 10px; /* Çok küçük ekranlarda aynı kalır */
+    }
+}
